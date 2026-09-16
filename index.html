@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chulo — AI-Augmented Engineering Teams</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grain"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="#" class="logo">chulo</a>
+        <div class="nav-links">
+          <button data-scroll="services">Services</button>
+          <button data-scroll="process">Process</button>
+          <button data-scroll="work">Work</button>
+          <button data-scroll="company">Company</button>
+        </div>
+      </div>
+      <button class="btn btn-white desktop-only" data-scroll="cta">Start building →</button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <button data-scroll="services">Services</button>
+      <button data-scroll="process">Process</button>
+      <button data-scroll="work">Work</button>
+      <button data-scroll="company">Company</button>
+      <button class="btn btn-white" data-scroll="cta">Start building →</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="dot"></span>
+          AI-augmented engineering teams • Est. 2014
+        </div>
+        <h1>
+          <span>Build, Maintain</span>
+          <span class="dim">& Scale</span>
+          <span>Software</span>
+          <span>Products</span>
+        </h1>
+        <p class="hero-lead">
+          We are CHULO. We replace bloated agencies with a tight pod of senior engineers + AI agents that ship like founders. No fluff. Just quality delivery.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-white" data-scroll="cta">Start building →</button>
+          <button class="btn btn-ghost" data-scroll="work">See how we work</button>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-value">200+</div>
+            <div class="stat-label">Products shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Engineers, senior only</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">10+</div>
+            <div class="stat-label">Years in production</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">Remote + Nepal</div>
+            <div class="stat-label">One team, remote-first hubs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="editor">
+          <div class="editor-header">
+            <div class="editor-dots"><span></span><span></span><span></span></div>
+            <span class="editor-title">chulo.engine.ts — 3 agents active</span>
+            <span class="live-badge">● Live build</span>
+          </div>
+          <div class="editor-body">
+            <div class="sidebar">
+              <div class="sidebar-label">Explorer</div>
+              <div class="file active">agents.ts</div>
+              <div class="file">ChuloPod.tsx</div>
+              <div class="file">tests/</div>
+              <div class="file">infra/</div>
+              <div class="pod-status">
+                <div class="pod-label">Pod Status</div>
+                <div class="agent"><span>Coding Agent</span><span class="tag green">BUILD</span></div>
+                <div class="agent"><span>QA Agent</span><span class="tag purple">TEST</span></div>
+                <div class="agent"><span>Review Agent</span><span class="tag gray">LINT</span></div>
+              </div>
+            </div>
+            <div class="code">
+              <div class="code-line"><span class="ln">1</span> <span class="kw">const</span> pod = <span class="kw">await</span> chulo.<span class="fn">createPod</span>({</div>
+              <div class="code-line"><span class="ln">2</span>   seniority: <span class="str">'staff-only'</span>,</div>
+              <div class="code-line"><span class="ln">3</span>   agents: [<span class="str">'code','qa','review'</span>],</div>
+              <div class="code-line"><span class="ln">4</span>   shipping: <span class="str">'daily'</span></div>
+              <div class="code-line"><span class="ln">5</span> });</div>
+              <div class="code-line comment"><span class="ln">6</span> // pod is live in 7 days — no hand-holding</div>
+              <div class="code-actions">
+                <span class="run">▶ Running</span>
+                <span class="prs">3 PRs ready</span>
+              </div>
+              <div class="activity">
+                <div class="act-header"><span>Activity</span><span>2m ago</span></div>
+                <div class="act-item"><span class="purple">●</span> agent:qa found 2 flaky tests → fixed</div>
+                <div class="act-item"><span class="green">●</span> agent:code shipped feat/checkout → 124 lines</div>
+                <div class="act-item"><span class="gray">●</span> human:lead approved PR #482</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="float-card">
+          <div class="float-icon">✓</div>
+          <div>
+            <div class="float-title">On-time delivery</div>
+            <div class="float-sub">98.3% sprints hit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted by -->
+  <div class="marquee-section">
+    <div class="marquee-inner">
+      <span class="marquee-label">Trusted by product teams</span>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>Wicketsoft</span><span>HamroTrips</span><span>Designerex</span>
+          <span>TripCraft</span><span>ScaleOps</span><span>Ledgerflow</span>
+          <span>Nimbus</span><span>VectorAI</span>
+          <span>Wicketsoft</span><span>HamroTrips</span><span>Designerex</span>
+          <span>TripCraft</span><span>ScaleOps</span><span>Ledgerflow</span>
+          <span>Nimbus</span><span>VectorAI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>A pod that ships.<br>Not a bench that bills.</h2>
+        <p>Everything you need to build, harden, and scale. Pick a track or let us run the whole product. Senior-only, AI-augmented, outcome-obsessed.</p>
+      </div>
+      <div class="service-list" id="serviceList"></div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-header process-header">
+        <h2>Delegate.<br>Review.<br><span class="dim">Own.</span></h2>
+        <p>Our human + AI workflow removes the busywork. You delegate outcomes, we handle execution, you keep ownership. No black boxes.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-top">
+            <div class="process-icon">1</div>
+            <span class="process-num">01</span>
+          </div>
+          <h3>Delegate</h3>
+          <p>Give us the goal, not a task list. A senior lead scopes it, breaks it into AI-executable slices, and sets acceptance criteria.</p>
+          <ul>
+            <li>Goals → Epics → Slices</li>
+            <li>AI drafts code + tests</li>
+            <li>Senior sets bar</li>
+          </ul>
+          <div class="terminal">
+            <div>$ chulo delegate</div>
+            <div class="ok">✓ scope locked</div>
+            <div class="bar"><span style="width:42%"></span></div>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-top">
+            <div class="process-icon">2</div>
+            <span class="process-num">02</span>
+          </div>
+          <h3>Review</h3>
+          <p>Every line goes through two gates: agent checks and senior human review. Quality is enforced, not hoped for.</p>
+          <ul>
+            <li>Agent QA + lint</li>
+            <li>Senior code review</li>
+            <li>Demo daily</li>
+          </ul>
+          <div class="terminal">
+            <div>$ chulo review</div>
+            <div class="ok">✓ checks green</div>
+            <div class="bar"><span style="width:76%"></span></div>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-top">
+            <div class="process-icon">3</div>
+            <span class="process-num">03</span>
+          </div>
+          <h3>Own</h3>
+          <p>We ship to prod, monitor, and hand you a codebase your team actually wants to keep. No lock-in, just leverage.</p>
+          <ul>
+            <li>Ship → Observe</li>
+            <li>Docs + handover</li>
+            <li>You own everything</li>
+          </ul>
+          <div class="terminal">
+            <div>$ chulo own</div>
+            <div class="ok">✓ deployed to prod</div>
+            <div class="bar"><span style="width:100%"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="work">
+    <div class="work-bg"></div>
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <div class="badge small">
+            <span class="dot"></span>
+            Selected builds • Production, not prototypes
+          </div>
+          <h2>We go deep where<br><span class="dim">quality is</span><br>non-negotiable.</h2>
+        </div>
+        <div>
+          <p>Production systems where failure costs money, time, or health — not portfolio demos.</p>
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="All">All</button>
+            <button class="filter" data-filter="Computer Vision">Computer Vision</button>
+            <button class="filter" data-filter="Hardware">Hardware</button>
+            <button class="filter" data-filter="Logistics">Logistics</button>
+            <button class="filter" data-filter="Automation">Automation</button>
+          </div>
+        </div>
+      </div>
+      <div class="work-grid" id="workGrid"></div>
+      <div class="work-note">
+        <span class="dot"></span> All builds are production-deployed, not prototypes. • NDA-safe summaries • Ask for deep dives
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="company" class="testimonials">
+    <div class="container">
+      <div class="testimonial-header">
+        <span class="label">What founders say</span>
+        <div class="dots" id="testimonialDots"></div>
+      </div>
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testimonialTrack"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="cta">
+    <div class="cta-bg"></div>
+    <div class="container cta-grid">
+      <div class="cta-content">
+        <div class="badge">Tell us what you’re building</div>
+        <h2>You bring the vision.<br><span class="dim">We bring the pod.</span></h2>
+        <p>Skip 6 months of hiring. Get a senior team + AI agents that start shipping next week. No sales theater. One call to scope, proposal in 24h.</p>
+        <div class="cta-trust">
+          <div class="avatars"><span>A</span><span>B</span><span>C</span></div>
+          <div>Trusted by 30+ teams<br>Avg. response &lt; 4h</div>
+        </div>
+      </div>
+      <div class="cta-form">
+        <div class="form-header">
+          <span>Book a build session</span>
+          <span class="pill">24h proposal</span>
+        </div>
+        <form id="contactForm" class="form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" autocomplete="name" placeholder="Alex Rivera">
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input id="email" type="email" autocomplete="email" placeholder="alex@company.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">What are you building?</label>
+            <textarea id="message" rows="4" placeholder="We need to rebuild our checkout and add AI search. Team of 4, need senior pod for 3 months..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent full">Start building →</button>
+          <div class="form-note">NDA-friendly • No spam • Cancel anytime</div>
+        </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">chulo</div>
+          <p>AI-augmented engineering teams for quality delivery. Now sharper, faster, senior-only.</p>
+          <div class="status"><span class="dot green"></span> Remote pods • Nepal hub</div>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Product</h4>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#work">Work</a>
+            <a href="#company">Company</a>
+          </div>
+          <div>
+            <h4>Build with</h4>
+            <span>Product Engineering</span>
+            <span>QA & Automation</span>
+            <span>AI Integration</span>
+            <span>Team Augmentation</span>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="mailto:hello@chulo.build">hello@chulo.build</a>
+            <span>+1 (415) 555-0142</span>
+            <span>Nepal: +977 01-591-2234</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Chulo Labs Inc. All systems operational.</span>
+        <div>
+          <span>Privacy</span>
+          <span>Security</span>
+          <span>chulo.engine v2.4.1</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
