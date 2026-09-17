@@ -1,0 +1,5 @@
+base_url = "https://chulo.build/"
+title = "Chulo — Accelerated Engineering Teams"
+output_dir = "public"
+compile_sass = false
+minify_html = true
