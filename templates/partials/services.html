@@ -1,0 +1,33 @@
+{% set copy_all = load_data(path="data/copy.toml") %}
+{% set copy = copy_all.copy %}
+{% set portfolio = load_data(path="data/portfolio.toml") %}
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">What we do</span>
+        <h2>A pod that ships.<br><span class="dim">Not a bench that bills.</span></h2>
+        <p>Everything you need to build, harden, and scale. Choose a track or hand us the whole product.</p>
+      </div>
+      <div class="service-list" id="serviceList">
+        {% for s in portfolio.services %}
+        <div class="service-item {% if loop.first %}active{% endif %}" data-id="{{ s.id }}">
+          <div class="service-top">
+            <span class="service-num">{{ s.id }}</span>
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">{{ s.title }}</h3>
+            <p class="service-desc">{{ s.desc }}</p>
+            <div class="service-tags">
+              {% for sub in s.subs %}<span>✓ {{ sub }}</span>{% endfor %}
+            </div>
+          </div>
+          <div class="service-outcome">
+            <div class="outcome-label">Outcome</div>
+            <div class="outcome-text">{{ s.outcome }}</div>
+            <div class="outcome-bar"><span style="width:88%"></span></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

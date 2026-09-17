@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chulo — Senior-only AI-augmented engineering teams</title>
+  <meta name="description" content="Senior-only pod of AI-augmented engineers. Replace bloated agencies, delegate outcomes, review quality, own everything. Production, not prototypes.">
+  <link rel="stylesheet" href="{{ get_url(path='styles.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "chulo",
+    "url": "https://chulo.build/",
+    "description": "Senior-only pod of AI-augmented engineers who build, harden, and scale software products end to end. Production, not prototypes.",
+    "areaServed": "Worldwide"
+  }
+  </script>
+</head>
+<body>
+  <div class="grain"></div>
+  {% include "partials/nav.html" %}
+  <main>
+  {% include "partials/hero.html" %}
+  {% include "partials/marquee.html" %}
+  {% include "partials/services.html" %}
+  {% include "partials/process.html" %}
+  {% include "partials/work.html" %}
+  {% include "partials/testimonials.html" %}
+  {% include "partials/cta.html" %}
+  </main>
+  {% include "partials/footer.html" %}
+
+  <script src="{{ get_url(path='script.js') }}"></script>
+</body>
+</html>

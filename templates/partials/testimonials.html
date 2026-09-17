@@ -1,0 +1,29 @@
+{% set copy_all = load_data(path="data/copy.toml") %}
+{% set copy = copy_all.copy %}
+{% set portfolio = load_data(path="data/portfolio.toml") %}
+  <section id="company" class="testimonials">
+    <div class="container">
+      <div class="testimonial-header">
+        <span class="label">What founders say</span>
+        <div class="dots" id="testimonialDots">
+          {% for t in portfolio.testimonials %}
+          <button class="{% if loop.first %}active{% endif %}" data-i="{{ loop.index0 }}"></button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testimonialTrack">
+          {% for t in portfolio.testimonials %}
+          <div class="testimonial-slide">
+            <div class="quote">“{{ t.quote }}”</div>
+            <div class="author-block">
+              <div class="author">{{ t.author }}</div>
+              <div class="role">{{ t.role }}</div>
+              <div class="verified"><span class="dot" style="background:#000;width:6px;height:6px"></span> Verified delivery</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>

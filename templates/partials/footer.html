@@ -1,0 +1,45 @@
+{% set copy_all = load_data(path="data/copy.toml") %}
+{% set copy = copy_all.copy %}
+{% set portfolio = load_data(path="data/portfolio.toml") %}
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">chulo</div>
+          <p class="footer-tagline">{{ copy.footerTagline }}</p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Services</h4>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#testimonials">Company</a>
+            <a href="#cta">Contact</a>
+          </div>
+          <div>
+            <h4>Build with</h4>
+            <span>Product Engineering</span>
+            <span>QA & Automation</span>
+            <span>AI Integration</span>
+            <span>Team Augmentation</span>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="mailto:hello@chulo.build">hello@chulo.build</a>
+            <span>+1 (415) 555-0142</span>
+            <span>Nepal: +977 01-591-2234</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Chulo Labs Inc. All systems operational.</span>
+        <div>
+          <span>Privacy</span>
+          <span>Security</span>
+          <span>chulo.engine v2.4.1</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ get_url(path='script.js') }}"></script>

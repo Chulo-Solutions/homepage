@@ -1,0 +1,41 @@
+{% set copy_all = load_data(path="data/copy.toml") %}
+{% set copy = copy_all.copy %}
+{% set portfolio = load_data(path="data/portfolio.toml") %}
+  <section id="cta" class="cta">
+    <div class="cta-bg"></div>
+    <div class="container cta-grid">
+      <div class="cta-content">
+        <div class="badge">Tell us what you're building</div>
+        <h2>You bring the vision.<br><span class="dim">We bring the pod.</span></h2>
+        <p>Skip 6 months of hiring. Get a senior team + AI agents that ship within 7 days. No sales theater — one call to scope, proposal in 24h, senior-only pod in 7.</p>
+        <div class="cta-trust">
+          <div class="avatars"><span>A</span><span>B</span><span>C</span></div>
+          <div>Trusted by 30+ teams<br>Avg. response &lt; 4h</div>
+        </div>
+      </div>
+      <div class="cta-form">
+        <div class="form-header">
+          <span>Book a build session</span>
+          <span class="pill">24h proposal</span>
+        </div>
+        <form id="contactForm" class="form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" autocomplete="name" placeholder="Alex Rivera">
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input id="email" type="email" autocomplete="email" placeholder="alex@company.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">What are you building?</label>
+            <textarea id="message" rows="4" placeholder="We need to rebuild our checkout and add AI search. Team of 4, need senior pod for 3 months..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent full">Start building →</button>
+          <div class="form-note">NDA-friendly • No spam • Cancel anytime</div>
+        </form>
+      </div>
+    </div>
+  </section>

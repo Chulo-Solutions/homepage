@@ -1,0 +1,70 @@
+{% set copy_all = load_data(path="data/copy.toml") %}
+{% set copy = copy_all.copy %}
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-header process-header">
+        <h2>Delegate.<br>Review.<br><span class="dim">Own.</span></h2>
+        <p>Our human + AI workflow removes the busywork. You delegate outcomes, we handle execution, you keep ownership. No black boxes.</p>
+      </div>
+      <div class="process-grid">
+
+        <div class="process-card">
+          <div class="process-top">
+            <div class="process-icon">1</div>
+            <span class="process-num">01</span>
+          </div>
+          <h3>Delegate</h3>
+          <p>{{ copy.delegate }}</p>
+          <ul>
+            <li>Goals → Epics → Slices</li>
+            <li>AI drafts code + tests</li>
+            <li>Senior sets bar</li>
+          </ul>
+          <div class="terminal">
+            <div>$ chulo delegate</div>
+            <div class="ok">✓ scope locked</div>
+            <div class="bar"><span style="width:42%"></span></div>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-top">
+            <div class="process-icon">2</div>
+            <span class="process-num">02</span>
+          </div>
+          <h3>Review</h3>
+          <p>{{ copy.review }}</p>
+          <ul>
+            <li>Agent QA + lint</li>
+            <li>Senior code review</li>
+            <li>Demo daily</li>
+          </ul>
+          <div class="terminal">
+            <div>$ chulo review</div>
+            <div class="ok">✓ checks green</div>
+            <div class="bar"><span style="width:76%"></span></div>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-top">
+            <div class="process-icon">3</div>
+            <span class="process-num">03</span>
+          </div>
+          <h3>Own</h3>
+          <p>{{ copy.own }}</p>
+          <ul>
+            <li>Ship → Observe</li>
+            <li>Docs + handover</li>
+            <li>You own everything</li>
+          </ul>
+          <div class="terminal">
+            <div>$ chulo own</div>
+            <div class="ok">✓ deployed to prod</div>
+            <div class="bar"><span style="width:100%"></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,51 @@
+{% set copy_all = load_data(path="data/copy.toml") %}
+{% set copy = copy_all.copy %}
+{% set portfolio = load_data(path="data/portfolio.toml") %}
+  <section id="work" class="work">
+    <div class="work-bg"></div>
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <div class="badge small">
+            <span class="dot"></span>
+            Selected builds • Production, not prototypes
+          </div>
+          <h2>We go deep where<br><span class="dim">quality is</span><br>non-negotiable.</h2>
+        </div>
+        <div>
+          <p>Production systems where failure costs money, time, or health — not portfolio demos.</p>
+          <div class="filters" id="filters">
+            <button class="filter active" data-filter="All">All</button>
+            <button class="filter" data-filter="Computer Vision">Computer Vision</button>
+            <button class="filter" data-filter="Hardware">Hardware</button>
+            <button class="filter" data-filter="Logistics">Logistics</button>
+            <button class="filter" data-filter="Automation">Automation</button>
+          </div>
+        </div>
+      </div>
+      <div class="work-grid" id="workGrid">
+        {% for p in portfolio.projects %}
+        <div class="project-card" data-category="{{ p.category }}">
+          <div class="project-image">
+            <div class="project-tag"><span class="dot"></span> {{ p.tag }}</div>
+            <img src="{{ get_url(path='portfolio/' ~ p.img) }}" alt="{{ p.title }}">
+          </div>
+          <div class="project-body">
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.desc }}</p>
+            <div class="project-stack">
+              {% for t in p.stack %}<span>{{ t }}</span>{% endfor %}
+            </div>
+            <div class="project-metric">
+              <span class="metric-badge"><span class="dot"></span> {{ p.metric }}</span>
+              {% if p.metricSub %}<span class="alias">{{ p.metricSub }}</span>{% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="work-note">
+        <span class="dot"></span> All builds are production-deployed, not prototypes. • NDA-safe summaries • Ask for deep dives
+      </div>
+    </div>
+  </section>
