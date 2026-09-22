@@ -3,6 +3,15 @@
 // Data lifted from data.js (window.CHULO_DATA)
 const { services, projects, testimonials } = window.CHULO_DATA;
 
+// Theme toggle (light default, persisted)
+const themeToggle = document.getElementById("themeToggle");
+function setTheme(t) {
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem("theme", t); } catch (e) {}
+}
+themeToggle?.addEventListener("click", () => {
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+});
 
 // Smooth scroll
 document.querySelectorAll("[data-scroll]").forEach(btn => {

@@ -1,5 +1,15 @@
 // UI-only. Content is SSR'd by Zola — no data, no templates.
 
+// Theme toggle (light default, persisted)
+const themeToggle = document.getElementById("themeToggle");
+function setTheme(t) {
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem("theme", t); } catch (e) {}
+}
+themeToggle?.addEventListener("click", () => {
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+});
+
 // Smooth scroll + close mobile menu
 document.querySelectorAll("[data-scroll]").forEach(btn => {
   btn.addEventListener("click", () => {
