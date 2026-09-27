@@ -11,9 +11,7 @@
       <div class="service-list" id="serviceList">
         {% for s in portfolio.services %}
         <div class="service-item {% if loop.first %}active{% endif %}" data-id="{{ s.id }}">
-          <div class="service-top">
-            <span class="service-num">{{ s.id }}</span>
-          </div>
+          <span class="service-id">{{ s.id }}</span>
           <div class="service-body">
             <h3 class="service-title">{{ s.title }}</h3>
             <p class="service-desc">{{ s.desc }}</p>

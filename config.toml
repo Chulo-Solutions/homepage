@@ -1,4 +1,4 @@
-base_url = "https://chulo.build/"
+base_url = "/"
 title = "Chulo — Accelerated Engineering Teams"
 output_dir = "public"
 compile_sass = false

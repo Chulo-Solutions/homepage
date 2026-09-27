@@ -531,6 +531,16 @@ h1 .dim { color: var(--text-3); }
   animation: float 4s ease-in-out infinite;
 }
 @media (min-width: 768px) { .float-card { display: flex; } }
+.float-cards {
+  position: absolute;
+  right: -1.5rem;
+  bottom: -2rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.float-cards .float-card { position: static; }
+@media (min-width: 768px) { .float-cards { display: flex; align-items: flex-end; } }
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
