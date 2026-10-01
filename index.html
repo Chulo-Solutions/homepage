@@ -43,7 +43,7 @@
       <div class="hero-content">
         <div class="badge">
           <span class="dot"></span>
-          AI-augmented engineering teams • Est. 2014
+          AI-augmented engineering teams • Est. 2020
         </div>
         <h1>
           <span>Build, Maintain</span>
@@ -52,7 +52,7 @@
           <span>Products</span>
         </h1>
         <p class="hero-lead">
-          We are CHULO. We replace bloated agencies with a tight pod of senior engineers backed by AI that accelerates the parts of the job AI is genuinely good at. Humans own the craft, the decisions, and the shipping — end to end.
+          We are CHULO. From building software from scratch to replacing bloated agencies, we deploy a lean team of senior engineers who use advanced automation to accelerate complex tasks. Our experts drive the craft, guide the strategic decisions, and guarantee delivery — end to end.
         </p>
         <div class="hero-actions">
           <button class="btn btn-white" data-scroll="cta">Start building →</button>
@@ -151,8 +151,8 @@
   <section id="services" class="services">
     <div class="container">
       <div class="section-header">
-        <h2>A pod that ships.<br>Not a bench that bills.</h2>
-        <p>Everything you need to build, harden, and scale. Pick a track or let us run the whole product. Senior-only, AI-augmented, outcome-obsessed.</p>
+        <h2>We ship software&mdash;<br>we don't just bill hours.</h2>
+        <p>We focus on shipping software, not running up the bill. Get everything you need to build, secure, and scale your product, your way.</p>
       </div>
       <div class="service-list" id="serviceList"></div>
     </div>
@@ -300,8 +300,12 @@
             <label for="message">What are you building?</label>
             <textarea id="message" rows="4" placeholder="We need to rebuild our checkout and add AI search. Team of 4, need senior pod for 3 months..."></textarea>
           </div>
-          <button type="submit" class="btn btn-accent full">Start building →</button>
-          <div class="form-note">NDA-friendly • No spam • Cancel anytime</div>
+          <div class="field-hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn-accent full" id="formSubmit">Start building →</button>
+          <div class="form-note" id="formStatus" role="status" aria-live="polite">NDA-friendly • No spam • Cancel anytime</div>
         </form>
     </div>
   </section>

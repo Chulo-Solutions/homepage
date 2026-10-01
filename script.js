@@ -1,7 +1,4 @@
-
-
-// Data lifted from data.js (window.CHULO_DATA)
-const { services, projects, testimonials } = window.CHULO_DATA;
+// UI-only. Content is SSR'd by Zola — no data, no templates.
 
 // Theme toggle (light default, persisted)
 const themeToggle = document.getElementById("themeToggle");
@@ -13,129 +10,86 @@ themeToggle?.addEventListener("click", () => {
   setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
 });
 
-// Smooth scroll
+// Smooth scroll + close mobile menu
 document.querySelectorAll("[data-scroll]").forEach(btn => {
   btn.addEventListener("click", () => {
-    const id = btn.getAttribute("data-scroll");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    document.getElementById("mobileMenu").classList.remove("open");
+    const el = document.getElementById(btn.getAttribute("data-scroll"));
+    el?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("mobileMenu")?.classList.remove("open");
   });
 });
 
-// Mobile menu
-document.getElementById("mobileToggle").addEventListener("click", () => {
+// Mobile menu toggle
+document.getElementById("mobileToggle")?.addEventListener("click", () => {
   document.getElementById("mobileMenu").classList.toggle("open");
 });
 
-// Services
-const serviceList = document.getElementById("serviceList");
-let activeService = "01";
-
-function renderServices() {
-  serviceList.innerHTML = services.map(s => `
-    <div class="service-item ${s.id === activeService ? "active" : ""}" data-id="${s.id}">
-      <div>
-        <span class="service-id">${s.id}</span>
-        <div class="service-title" style="display:none">${s.title}</div>
-      </div>
-      <div>
-        <div class="service-title">${s.title}</div>
-        <p class="service-desc">${s.desc}</p>
-        <div class="service-tags">
-          ${s.subs.map(sub => `<span>✓ ${sub}</span>`).join("")}
-        </div>
-      </div>
-      <div class="service-outcome">
-        <div class="outcome-label">Outcome</div>
-        <div class="outcome-text">${s.outcome}</div>
-        <div class="outcome-bar"><span></span></div>
-      </div>
-    </div>
-  `).join("");
-
-  serviceList.querySelectorAll(".service-item").forEach(item => {
-    item.addEventListener("mouseenter", () => {
-      activeService = item.dataset.id;
-      renderServices();
-    });
-  });
-}
-renderServices();
-
-// Work filters
+// Work filters (DOM already SSR'd)
 const workGrid = document.getElementById("workGrid");
-let currentFilter = "All";
-
-function renderProjects() {
-  const filtered = currentFilter === "All"
-    ? projects
-    : projects.filter(p => p.category === currentFilter);
-
-  workGrid.innerHTML = filtered.map(p => `
-    <div class="project-card">
-      <div class="project-image">
-        <div class="project-tag"><span class="dot"></span> ${p.tag}</div>
-        <img src="${p.img}" alt="${p.title}" loading="lazy">
-      </div>
-      <div class="project-body">
-        <h3>${p.title}</h3>
-        <p>${p.desc}</p>
-        <div class="project-stack">
-          ${p.stack.map(s => `<span>${s}</span>`).join("")}
-        </div>
-        <div class="project-metric">
-          <span class="metric-badge"><span class="dot" style="width:6px;height:6px;background:#000"></span> ${p.metric}</span>
-          <span class="metric-sub">${p.metricSub}</span>
-        </div>
-      </div>
-    </div>
-  `).join("") || `<p style="grid-column:1/-1;text-align:center;color:rgba(255,255,255,0.3)">No builds in this category yet.</p>`;
-}
-
-document.getElementById("filters").addEventListener("click", e => {
-  if (e.target.classList.contains("filter")) {
-    document.querySelectorAll(".filter").forEach(f => f.classList.remove("active"));
-    e.target.classList.add("active");
-    currentFilter = e.target.dataset.filter;
-    renderProjects();
-  }
+const filters = document.getElementById("filters");
+filters?.addEventListener("click", e => {
+  const btn = e.target.closest(".filter");
+  if (!btn) return;
+  filters.querySelectorAll(".filter").forEach(f => f.classList.toggle("active", f === btn));
+  const cat = btn.dataset.filter;
+  workGrid.querySelectorAll(".project-card").forEach(card => {
+    card.style.display = cat === "All" || card.dataset.category === cat ? "" : "none";
+  });
 });
-renderProjects();
 
-// Testimonials
-let currentTestimonial = 0;
+// Testimonial slider (slides SSR'd; dots SSR'd)
 const track = document.getElementById("testimonialTrack");
 const dots = document.getElementById("testimonialDots");
-
-function renderTestimonials() {
-  track.innerHTML = testimonials.map(t => `
-    <div class="testimonial-slide">
-      <div class="quote">“${t.quote}”</div>
-      <div class="author-block">
-        <div class="author">${t.author}</div>
-        <div class="role">${t.role}</div>
-        <div class="verified"><span class="dot" style="background:#000;width:6px;height:6px"></span> Verified delivery</div>
-      </div>
-    </div>
-  `).join("");
-
-  dots.innerHTML = testimonials.map((_, i) =>
-    `<button class="${i === currentTestimonial ? "active" : ""}" data-i="${i}"></button>`
-  ).join("");
-
-  track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-
-  dots.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      currentTestimonial = +btn.dataset.i;
-      renderTestimonials();
-    });
-  });
+let current = 0;
+const slideCount = track ? track.children.length : 0;
+function go(i) {
+  current = (i + slideCount) % slideCount;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  dots?.querySelectorAll("button").forEach((b, j) => b.classList.toggle("active", j === current));
 }
-renderTestimonials();
+dots?.querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => go(i)));
+if (slideCount > 1) setInterval(() => go(current + 1), 4000);
 
-// Auto-rotate testimonials
-setInterval(() => {
-  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-  renderTestimonials();
-}, 4000);
+// Contact form -> /api/contact (Netlify edge function -> Slack)
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+const formSubmit = document.getElementById("formSubmit");
+
+contactForm?.addEventListener("submit", async e => {
+  e.preventDefault();
+  const say = (msg, kind = "") => {
+    formStatus.textContent = msg;
+    formStatus.className = "form-note" + (kind ? " " + kind : "");
+  };
+  const field = id => document.getElementById(id).value;
+  // Surface the real cause instead of one generic message for every failure.
+  const explain = (res, data) => {
+    if (data?.error) return data.error;
+    if (res.status === 404) return "Not deployed yet — endpoint missing.";
+    if (res.status === 401 || res.status === 403) return "Blocked by auth. Try again.";
+    if (res.status === 429) return "Too many attempts. Wait a minute.";
+    return `Send failed (${res.status}).`;
+  };
+  say("Sending…");
+  formSubmit.disabled = true;
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        name: field("name"),
+        email: field("email"),
+        message: field("message"),
+        website: field("website"),
+      }),
+    });
+    const data = await res.json().catch(() => null);
+    if (!res.ok) throw new Error(explain(res, data));
+    contactForm.reset();
+    say("Sent — we'll reply within 24h.", "ok");
+  } catch (err) {
+    say(err.message || "Could not send. Please try again.", "err");
+  } finally {
+    formSubmit.disabled = false;
+  }
+});

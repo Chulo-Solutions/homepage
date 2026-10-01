@@ -33,8 +33,12 @@
             <label for="message">What are you building?</label>
             <textarea id="message" rows="4" placeholder="We need to rebuild our checkout and add AI search. Team of 4, need senior pod for 3 months..."></textarea>
           </div>
-          <button type="submit" class="btn btn-accent full">Start building →</button>
-          <div class="form-note">NDA-friendly • No spam • Cancel anytime</div>
+          <div class="field-hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button type="submit" class="btn btn-accent full" id="formSubmit">Start building →</button>
+          <div class="form-note" id="formStatus" role="status" aria-live="polite">NDA-friendly • No spam • Cancel anytime</div>
         </form>
       </div>
     </div>

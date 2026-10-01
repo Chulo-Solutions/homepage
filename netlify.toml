@@ -4,3 +4,12 @@
 
 [build.environment]
   ZOLA_VERSION = "0.23.6"
+
+# Temporary. Remove this block when the site goes public.
+[[edge_functions]]
+  function = "basic-auth"
+  path = "/*"
+
+[[edge_functions]]
+  function = "contact"
+  path = "/api/contact"
