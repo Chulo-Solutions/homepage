@@ -1,6 +1,7 @@
 // Local dev server: serves public/ and runs the real edge function, so the
 // contact form works offline against the same code Netlify deploys.
-//   node --experimental-strip-types dev-server.js
+//   cp .env.example .env      # fill in the webhook URL
+//   node --env-file=.env --experimental-strip-types dev-server.js
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
