@@ -1,18 +1,35 @@
 // Local dev server: serves public/ and runs the real edge function, so the
 // contact form works offline against the same code Netlify deploys.
-//   cp .env.example .env      # fill in the webhook URL
-//   node --env-file=.env --experimental-strip-types dev-server.js
+//   cp .env.example .env   (one time: paste your webhook URL in)
+//   node --experimental-strip-types dev-server.js
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
+import { existsSync, readFileSync } from "node:fs";
 import { extname, join, normalize } from "node:path";
 
 const ROOT = new URL("./public/", import.meta.url).pathname;
 const PORT = process.env.PORT ?? 8888;
 
+// Load .env here so the command stays short and --env-file can't be forgotten.
+// An already-set variable wins, so `SLACK_WEBHOOK_URL=x node ...` still overrides.
+const envFile = new URL("./.env", import.meta.url);
+if (existsSync(envFile)) {
+  for (const line of readFileSync(envFile, "utf8").split("\n")) {
+    const m = /^\s*([\w.]+)\s*=\s*(.*)\s*$/.exec(line);
+    if (!m || line.trim().startsWith("#")) continue;
+    process.env[m[1]] ??= m[2].replace(/^["']|["']$/g, "");
+  }
+}
+
 // Shim Deno.env, then load the function via dynamic import so the shim exists
 // first (static imports are hoisted and would run before it).
 globalThis.Deno = { env: { get: (k) => process.env[k] } };
 const { default: contact } = await import("./netlify/edge-functions/contact.js");
+
+if (!process.env.SLACK_WEBHOOK_URL) {
+  console.warn("SLACK_WEBHOOK_URL not set - the contact form will return 500.");
+  console.warn("Fix: cp .env.example .env  and paste your webhook URL in.");
+}
 
 const TYPES = {
   ".html": "text/html", ".css": "text/css", ".js": "text/javascript",
