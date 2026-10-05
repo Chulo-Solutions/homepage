@@ -343,6 +343,8 @@ h1 .dim { color: var(--text-3); }
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
+/* Lives outside .hero-content, so it must span both grid columns. */
+.stats { grid-column: 1 / -1; }
 @media (min-width: 768px) {
   .stats { grid-template-columns: repeat(4, 1fr); margin-top: 4rem; }
 }
@@ -688,7 +690,7 @@ h1 .dim { color: var(--text-3); }
   font-weight: 700;
   letter-spacing: 0.02em;
   font-family: ui-monospace, monospace;
-  padding: 0.3rem 0.7rem;
+  padding: 20px;
   border-radius: 9999px;
   border: 1px solid var(--chip);
   background: transparent;

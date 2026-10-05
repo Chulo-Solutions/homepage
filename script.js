@@ -86,7 +86,7 @@ contactForm?.addEventListener("submit", async e => {
     const data = await res.json().catch(() => null);
     if (!res.ok) throw new Error(explain(res, data));
     contactForm.reset();
-    say("Sent — we'll reply within 24h.", "ok");
+    say("Sent - we'll reply soon.", "ok");
   } catch (err) {
     say(err.message || "Could not send. Please try again.", "err");
   } finally {
