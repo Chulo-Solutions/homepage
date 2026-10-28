@@ -274,8 +274,11 @@ body {
   height: 100%;
   background: #BEDEFF;
   pointer-events: none;
+  z-index: 0;
 }
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 3rem;
 }
