@@ -9,7 +9,6 @@ html {
 /* Themes — Light with palette */
 :root {
   --bg: #FFFFFF;
-  --hero-bg: #FFFFFF;
   --bg-2: #F7F3E6;
   --bg-sunken: #F0EBD9;
   --bg-soft: rgba(17, 24, 39, 0.04);
@@ -63,7 +62,6 @@ html {
 }
 [data-theme="dark"] {
   --bg: #0F0D0B;
-  --hero-bg: #202734;
   --bg-2: #15120E;
   --bg-sunken: #080706;
   --bg-soft: rgba(255,253,242,0.04);
@@ -267,16 +265,10 @@ body {
   margin: 0 auto;
   padding: 4rem 1.5rem 4rem;
   overflow-x: clip;
+  background: #FFFFFF;
 }
 .hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--hero-bg, #FFFFFF);
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 .hero-grid {
   position: relative;
