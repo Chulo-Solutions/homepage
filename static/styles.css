@@ -637,7 +637,7 @@ h1 .dim { color: var(--accent); }
 
 /* Services */
 .services {
-  background: var(--chip);
+  background: var(--page-bg);
   color: var(--panel-text);
   border-radius: 0;
   margin-top: 0;
@@ -648,7 +648,7 @@ h1 .dim { color: var(--accent); }
 .services-bg {
   position: absolute;
   inset: 0;
-  background: var(--chip);
+  background: var(--page-bg);
   pointer-events: none;
   z-index: 0;
 }
