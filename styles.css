@@ -379,11 +379,10 @@ h1 .dim { color: var(--accent); }
   position: relative;
   border-radius: 32px;
   border: 1px solid var(--border-strong);
-  background: radial-gradient(120% 120% at 50% 0%, rgba(128, 203, 196, 0.32), transparent),
-              var(--card);
+  background: var(--card);
   backdrop-filter: blur(60px);
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 60px 120px -80px rgba(15, 47, 44, 0.25), var(--shadow-lg);
+  box-shadow: var(--shadow-lg);
   transform: perspective(1200px) rotateY(-2deg) rotateX(2deg);
 }
 .editor-header {
@@ -625,14 +624,13 @@ h1 .dim { color: var(--accent); }
 
 /* Services */
 .services {
-  background: radial-gradient(140% 140% at 50% 0%, rgba(128, 203, 196, 0.4), transparent),
-              var(--panel-bg);
+  background: var(--panel-bg);
   color: var(--panel-text);
-  border-radius: 48px 48px 0 0;
-  margin-top: -1px;
+  border-radius: 0;
+  margin-top: 0;
   position: relative;
   z-index: 10;
-  border-top: 1px solid var(--panel-border);
+  border-top: none;
 }
 @media (min-width: 768px) {
   .services { border-radius: 48px 48px 0 0; }
@@ -905,12 +903,11 @@ h1 .dim { color: var(--accent); }
 /* Work */
 .work {
   position: relative;
-  background: radial-gradient(140% 140% at 50% 0%, rgba(255, 180, 51, 0.2), transparent),
-              var(--bg-2);
+  background: var(--bg-2);
   color: var(--text);
-  border-radius: 48px;
-  border: 1px solid var(--border);
-  margin-top: -1px;
+  border-radius: 0;
+  border: none;
+  margin-top: 0;
   z-index: 10;
   overflow: hidden;
 }
@@ -921,15 +918,7 @@ h1 .dim { color: var(--accent); }
   pointer-events: none;
 }
 .work-bg::before {
-  content: '';
-  position: absolute;
-  top: -10rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1200px;
-  height: 600px;
-  background: radial-gradient(60% 80% at 50% 0%, rgba(128, 203, 196, 0.3), transparent 60%),
-              radial-gradient(40% 60% at 80% 20%, rgba(255, 180, 51, 0.18), transparent);
+  display: none;
 }
 .work .container {
   position: relative;
@@ -1209,23 +1198,10 @@ h1 .dim { color: var(--accent); }
   pointer-events: none;
 }
 .cta-bg::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;
-  height: 900px;
-  border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 180, 51, 0.4), transparent 70%),
-              radial-gradient(40% 40% at 30% 30%, rgba(128, 203, 196, 0.45), transparent 60%);
-  filter: blur(20px);
+  display: none;
 }
 .cta-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent, var(--cta-overlay));
+  display: none;
 }
 .cta-grid {
   position: relative;
