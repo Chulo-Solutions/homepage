@@ -6,57 +6,66 @@ html {
   overflow-x: clip;
 }
 
-/* Themes — Light with palette */
+/* Themes */
 :root {
-  --bg: #FFFFFF;
+  --page-bg: #F2F5EE;
+  --heading-dark: #1A2E1E;
+  --accent-yellow: #C6D94A;
+  --card-bg: #C8DDB0;
+  --badge-green: #8FC88A;
+  --terminal-bg: #E8EEDF;
+  --text-muted: #5C735E;
+  --progress-green: #2E7D32;
+  --pill-border: #1A2E1E;
+  --bg: var(--page-bg);
   --bg-2: #F7F3E6;
-  --bg-sunken: #F0EBD9;
+  --bg-sunken: var(--terminal-bg);
   --bg-soft: rgba(44, 49, 96, 0.04);
-  --bg-soft-strong: rgba(17, 24, 39, 0.07);
-  --card: #FFFFFF;
+  --bg-soft-strong: rgba(26, 46, 30, 0.08);
+  --card: var(--card-bg);
   --card-soft: #BEDEFF;
-  --card-hover: #F5F1DC;
-  --nav-bg: rgba(251, 248, 239, 0.9);
-  --text: #1F2937;
-  --text-2: rgba(31, 41, 55, 0.78);
-  --text-3: rgba(31, 41, 55, 0.64);
-  --text-4: rgba(31, 41, 55, 0.46);
-  --border: rgba(31, 41, 55, 0.14);
-  --border-weak: rgba(31, 41, 55, 0.08);
-  --border-strong: rgba(31, 41, 55, 0.22);
-  --chip: #80CBC4;
-  --chip-text: #0F2F2C;
+  --card-hover: #D6E6BF;
+  --nav-bg: rgba(242, 245, 238, 0.9);
+  --text: var(--heading-dark);
+  --text-2: rgba(26, 46, 30, 0.78);
+  --text-3: rgba(26, 46, 30, 0.64);
+  --text-4: rgba(26, 46, 30, 0.46);
+  --border: rgba(26, 46, 30, 0.14);
+  --border-weak: rgba(26, 46, 30, 0.08);
+  --border-strong: rgba(26, 46, 30, 0.22);
+  --chip: var(--accent-yellow);
+  --chip-text: var(--heading-dark);
   --chip-hover: #6BC0B8;
   --chip-soft: rgba(128, 203, 196, 0.22);
   --chip-glow: rgba(128, 203, 196, 0.4);
-  --accent: #FFB433;
-  --accent-ink: #2F2108;
+  --accent: var(--accent-yellow);
+  --accent-ink: var(--heading-dark);
   --accent-hover: #FFA61A;
   --accent-soft: rgba(255, 180, 51, 0.28);
   --accent-glow: rgba(255, 180, 51, 0.45);
-  --lime: #1F7F6B;
+  --lime: var(--progress-green);
   --lime-soft: rgba(31, 127, 107, 0.5);
   --lime-glow: rgba(31, 127, 107, 0.18);
   --purple: #1F7F6B;
-  --green: #1F7F6B;
-  --shadow-lg: 0 30px 70px rgba(31, 41, 55, 0.12);
-  --shadow-md: 0 20px 50px rgba(31, 41, 55, 0.12);
-  --shadow-hover: 0 40px 80px rgba(31, 41, 55, 0.16);
-  --tag-bg: rgba(128, 203, 196, 0.22);
-  --tag-text: #0F2F2C;
+  --green: var(--progress-green);
+  --shadow-lg: 0 30px 70px rgba(26, 46, 30, 0.12);
+  --shadow-md: 0 20px 50px rgba(26, 46, 30, 0.12);
+  --shadow-hover: 0 40px 80px rgba(26, 46, 30, 0.16);
+  --tag-bg: var(--badge-green);
+  --tag-text: var(--heading-dark);
   --panel-bg: #ffffff;
-  --panel-text: #102523;
+  --panel-text: var(--heading-dark);
   --panel-text-2: rgba(16, 37, 35, 0.78);
   --panel-text-3: rgba(16, 37, 35, 0.66);
   --panel-border: rgba(16, 37, 35, 0.16);
   --panel-hover: rgba(16, 37, 35, 0.04);
-  --panel-chip: #80CBC4;
-  --panel-chip-text: #0F2F2C;
+  --panel-chip: var(--accent-yellow);
+  --panel-chip-text: var(--heading-dark);
   --panel-chip-glow: rgba(128, 203, 196, 0.4);
-  --panel-card: rgba(255, 255, 255, 0.7);
-  --panel-card-active: #BEDEFF;
+  --panel-card: rgba(255, 255, 255, 0.4);
+  --panel-card-active: #fff;
   --panel-track: rgba(16, 37, 35, 0.12);
-  --cta-bg: #F7F3E6;
+  --cta-bg: var(--page-bg);
   --cta-overlay: transparent;
   --font-display: 'Schibsted Grotesk', 'Inter', system-ui, sans-serif;
 }
@@ -107,7 +116,7 @@ html {
   --panel-chip-text: #F7F8EC;
   --panel-chip-glow: rgba(24,96,73,0.22);
   --panel-card: rgba(255,253,242,0.6);
-  --panel-card-active: #BEDEFF;
+  --panel-card-active: #D98327;
   --panel-track: rgba(20,17,13,0.06);
   --cta-bg: #0A0806;
   --cta-overlay: rgba(0,0,0,0.8);
@@ -265,7 +274,7 @@ body {
   margin: 0 auto;
   padding: 4rem 1.5rem 4rem;
   overflow-x: clip;
-  background: #FFFFFF;
+  background: var(--page-bg);
 }
 .hero-bg {
   display: none;
