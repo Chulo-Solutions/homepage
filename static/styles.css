@@ -1139,7 +1139,7 @@ h1 .dim { color: var(--accent); }
 
 /* Testimonials */
 .testimonials {
-  background: var(--bg);
+  background: var(--page-bg);
   border-top: 1px solid var(--border);
   padding: 4rem 0;
 }
@@ -1164,7 +1164,7 @@ h1 .dim { color: var(--accent); }
   width: 32px;
   background: var(--chip);
 }
-.testimonial-slider { overflow: hidden; border-radius: 32px; border: 1px solid var(--border); background: var(--card-soft); }
+.testimonial-slider { overflow: hidden; border-radius: 32px; border: 1px solid var(--border); background: var(--card-bg); }
 .testimonial-track {
   display: flex;
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1360,9 +1360,16 @@ h1 .dim { color: var(--accent); }
 /* Footer */
 .footer {
   border-top: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--text-2);
+  background: #1A2E1E;
+  color: rgba(242, 245, 238, 0.8);
   padding: 3rem 0;
+}
+.footer .logo,
+.footer-links h4 {
+  color: #F2F5EE;
+}
+.footer-links a:hover {
+  color: #F2F5EE;
 }
 @media (min-width: 768px) { .footer { padding: 4rem 0; } }
 .footer-top {
