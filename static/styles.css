@@ -11,9 +11,9 @@ html {
   --bg: #FFFFFF;
   --bg-2: #F7F3E6;
   --bg-sunken: #F0EBD9;
-  --bg-soft: rgba(17, 24, 39, 0.04);
+  --bg-soft: rgba(44, 49, 96, 0.04);
   --bg-soft-strong: rgba(17, 24, 39, 0.07);
-  --card: #BEDEFF;
+  --card: #FFFFFF;
   --card-soft: #BEDEFF;
   --card-hover: #F5F1DC;
   --nav-bg: rgba(251, 248, 239, 0.9);
@@ -44,7 +44,7 @@ html {
   --shadow-hover: 0 40px 80px rgba(31, 41, 55, 0.16);
   --tag-bg: rgba(128, 203, 196, 0.22);
   --tag-text: #0F2F2C;
-  --panel-bg: #B4EBE6;
+  --panel-bg: #ffffff;
   --panel-text: #102523;
   --panel-text-2: rgba(16, 37, 35, 0.78);
   --panel-text-3: rgba(16, 37, 35, 0.66);
@@ -115,7 +115,7 @@ html {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #BEDEFF;
+  background: #ffffff;
   color: var(--text);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -474,7 +474,7 @@ h1 .dim { color: var(--accent); }
   font-size: 12px;
   line-height: 1.7;
 }
-.code-line { }
+.code-line
 .ln { color: var(--text-4); margin-right: 0.5rem; }
 .kw { color: var(--purple); }
 .fn { color: var(--lime); }
@@ -626,6 +626,17 @@ h1 .dim { color: var(--accent); }
   z-index: 10;
   border-top: none;
 }
+.services-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--panel-bg);
+  pointer-events: none;
+  z-index: 0;
+}
+.services > .container {
+  position: relative;
+  z-index: 1;
+}
 @media (min-width: 768px) {
   .services { border-radius: 48px 48px 0 0; }
 }
@@ -687,9 +698,9 @@ h1 .dim { color: var(--accent); }
   }
 }
 .service-id {
-  font-size: 15px;
+  font-size: 36px;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
   font-family: ui-monospace, monospace;
   padding: 20px;
   border-radius: 9999px;
@@ -699,6 +710,7 @@ h1 .dim { color: var(--accent); }
   display: inline-block;
   margin: 0.35rem 0 0.35rem 0.5rem;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  text-align: center;
 }
 .service-item.active .service-id,
 .service-item:hover .service-id {
