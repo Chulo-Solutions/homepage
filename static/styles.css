@@ -698,7 +698,7 @@ h1 .dim { color: var(--accent); }
   color: var(--text-2);
 }
 @media (min-width: 768px) {
-  .section-header p { font-size: 19px; }
+  .section-header p { font-size: 17px; }
 }
 .services .section-header p { color: var(--panel-text-2); }
 .service-item {
