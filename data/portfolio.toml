@@ -2,7 +2,7 @@
 id = "01"
 title = "Product Engineering"
 desc = "From 0→1 to scale. We architect and ship production-grade software that holds up under real users."
-subs = ["MVP to Scale", "Frontend Systems", "Backend & Infra", "Mobile Engineering", "Architecture Audit"]
+subs = ["MVP to Scale", "Frontend Systems", "Backend & Infra", "Architecture Audit"]
 outcome = "Production-ready features every week, not demos."
 
 [[services]]
