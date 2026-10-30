@@ -677,13 +677,12 @@ h1 .dim { color: var(--accent); }
 
 .section-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.5rem;
-  align-items: flex-end;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
   margin-bottom: 3rem;
 }
-@media (min-width: 768px) { .section-header { margin-bottom: 5rem; } }
+@media (min-width: 768px) { .section-header { margin-bottom: 5rem; gap: 1.25rem; } }
 .section-header h2 {
   font-size: clamp(34px, 6vw, 76px);
   line-height: 0.94;
@@ -694,10 +693,13 @@ h1 .dim { color: var(--accent); }
   text-transform: uppercase;
 }
 .section-header p {
-  max-width: 38ch;
-  font-size: 15px;
-  line-height: 1.6;
+  max-width: 48ch;
+  font-size: 17px;
+  line-height: 1.7;
   color: var(--text-2);
+}
+@media (min-width: 768px) {
+  .section-header p { font-size: 19px; }
 }
 .services .section-header p { color: var(--panel-text-2); }
 .service-item {
