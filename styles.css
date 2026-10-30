@@ -825,9 +825,10 @@ h1 .dim { color: var(--accent); }
 .process-header {
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
 }
 @media (min-width: 768px) {
-  .process-header { flex-direction: row; align-items: flex-end; }
+  .process-header { gap: 1.25rem; }
 }
 .process-header .dim { color: var(--accent); }
 .process-grid {
