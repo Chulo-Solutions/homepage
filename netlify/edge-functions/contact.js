@@ -12,6 +12,8 @@ const json = (body, status) =>
   });
 
 const clean = (s, max) => String(s ?? "").trim().slice(0, max);
+// Slack interprets these in mrkdwn, so a submitter could otherwise ping a channel.
+const md = (s) => s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
 
 export default async function contact(request) {
   if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
@@ -55,7 +57,7 @@ export default async function contact(request) {
             type: "section",
             text: {
               type: "mrkdwn",
-              text: `*New build enquiry*\n*Name:* ${name}\n*Email:* ${email}\n\n${message}`,
+              text: `*New build enquiry*\n*Name:* ${md(name)}\n*Email:* ${md(email)}\n\n${md(message)}`,
             },
           },
         ],
@@ -66,7 +68,7 @@ export default async function contact(request) {
     return json({ error: "Could not reach us. Please try again." }, 502);
   }
 
-  lastPost.set(ip, Date.now());
   if (!res.ok) return json({ error: "Could not deliver. Email us instead." }, 502);
+  lastPost.set(ip, Date.now());
   return json({ ok: true });
 }

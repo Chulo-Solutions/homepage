@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 
 const assertEquals = assert.deepStrictEqual;
 globalThis.Deno ??= { env: { get: (k) => process.env[k] } };
+process.env.SLACK_WEBHOOK_URL ??= "https://example.invalid/test";
 
 const { default: contact } = await import("../netlify/edge-functions/contact.js");
 
@@ -19,8 +20,10 @@ const post = (body, ip = "1.2.3.4") =>
 
 const realFetch = globalThis.fetch;
 let called = 0;
-globalThis.fetch = () => {
+let lastBody = "";
+globalThis.fetch = (_url, init) => {
   called++;
+  lastBody = init.body;
   return Promise.resolve(new Response("ok", { status: 200 }));
 };
 
@@ -71,6 +74,17 @@ for (const r of leaks) {
   assert(!t.includes("hooks.slack.com"), `leaked webhook URL: ${t}`);
   assert(!t.includes(Deno.env.get("SLACK_WEBHOOK_URL") ?? "@@none"), "leaked env value");
 }
+
+// 10. Slack markup from a submitter is escaped, not interpreted
+assertEquals((await post({ ...good, message: "Ping <!here> & <@U123>" }, "7.7.7.7")).status, 200);
+assert(!lastBody.includes("<!here>"), `unescaped Slack markup: ${lastBody}`);
+assert(lastBody.includes("&lt;!here&gt;") && lastBody.includes("&amp;"), "markup not escaped");
+
+// 11. a failed delivery does not rate-limit the sender
+globalThis.fetch = () => Promise.resolve(new Response("down", { status: 500 }));
+assertEquals((await post(good, "6.6.6.6")).status, 502);
+globalThis.fetch = (_url, init) => Promise.resolve(new Response("ok", { status: 200, body: init.body }));
+assertEquals((await post(good, "6.6.6.6")).status, 200);
 
 globalThis.fetch = realFetch;
 console.log("all contact-function guards passed");

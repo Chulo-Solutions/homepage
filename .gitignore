@@ -1,3 +1,8 @@
 .env
 .env.*
 !.env.example
+public/
+.DS_Store
+__pycache__/
+*.pyc
+.freebuff/

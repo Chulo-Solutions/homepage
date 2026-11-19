@@ -1,14 +1,31 @@
 // UI-only. Content is SSR'd by Zola — no data, no templates.
 
-// Theme toggle (light default, persisted)
+// Theme toggle (system default, persisted override)
 const themeToggle = document.getElementById("themeToggle");
-function setTheme(t) {
-  document.documentElement.dataset.theme = t;
-  try { localStorage.setItem("theme", t); } catch (e) {}
+const themeMeta = document.querySelector('meta[name="color-scheme"]');
+const mqlDark = matchMedia("(prefers-color-scheme: dark)");
+function themeOverride() {
+  try { const t = localStorage.getItem("theme"); return t === "light" || t === "dark" ? t : null; } catch (e) { return null; }
+}
+function applyTheme() {
+  const o = themeOverride();
+  if (themeMeta) themeMeta.content = o || "light dark";
+  document.documentElement.dataset.theme = o || (mqlDark.matches ? "dark" : "light");
+}
+function setThemeOverride(o) {
+  try {
+    if (o) localStorage.setItem("theme", o);
+    else localStorage.removeItem("theme");
+  } catch (e) {}
+  applyTheme();
 }
 themeToggle?.addEventListener("click", () => {
-  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+  const rendered = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+  const target = rendered === "dark" ? "light" : "dark";
+  setThemeOverride(target === (mqlDark.matches ? "dark" : "light") ? null : target);
 });
+mqlDark.addEventListener("change", () => { if (!themeOverride()) applyTheme(); });
+window.addEventListener("storage", e => { if (e.key === "theme") applyTheme(); });
 
 // Smooth scroll + close mobile menu
 document.querySelectorAll("[data-scroll]").forEach(btn => {
@@ -48,7 +65,7 @@ function go(i) {
   dots?.querySelectorAll("button").forEach((b, j) => b.classList.toggle("active", j === current));
 }
 dots?.querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => go(i)));
-if (slideCount > 1) setInterval(() => go(current + 1), 4000);
+if (slideCount > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => go(current + 1), 4000);
 
 // Contact form -> /api/contact (Netlify edge function -> Slack)
 const contactForm = document.getElementById("contactForm");

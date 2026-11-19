@@ -28,9 +28,9 @@ outcome = "7-day onboarding. Feels like internal team."
 
 [[projects]]
 id = "foodwaste"
-img = "foodwaste.png"
+img = "foodwaste.avif"
 title = "FoodWaste Vision"
-tag = "COMPUTER VISION"
+tag = "Computer vision"
 category = "Computer Vision"
 desc = "Smart bin with CV — detects food waste inside bin, classifies waste streams"
 stack = ["YOLOv8", "Python", "OpenCV", "Edge Inference"]
@@ -39,9 +39,9 @@ metricSub = "30 FPS on edge"
 
 [[projects]]
 id = "pokerscan"
-img = "pokerscan.png"
+img = "pokerscan.avif"
 title = "PokerScan"
-tag = "HARDWARE + RADIO"
+tag = "Hardware + radio"
 category = "Hardware"
 desc = "Cards swiped through the reader one by one, read via ESP32 radio signals — auto-calculates button position, winner, pot split, rake"
 stack = ["ESP32", "Embedded C", "Radio ID", "WebSockets"]
@@ -50,9 +50,9 @@ metricSub = "Rake auto-calc"
 
 [[projects]]
 id = "mediroute"
-img = "mediroute.png"
+img = "mediroute.avif"
 title = "MediRoute"
-tag = "LOGISTICS / HEALTH"
+tag = "Logistics / health"
 category = "Logistics"
 desc = "GPS routing for medicine delivery, per-unit inventory, delivery & return tracking down to the single parcel"
 stack = ["React Native", "GPS", "Maps SDK"]
@@ -61,9 +61,9 @@ metricSub = "Unit-level inventory"
 
 [[projects]]
 id = "bookit"
-img = "bookit.png"
+img = "bookit.avif"
 title = "BookIt"
-tag = "TRAVEL TECH"
+tag = "Travel tech"
 category = "Logistics"
 desc = "Yacht & cruise ticket booking with seat locking, dynamic pricing, instant confirmation. Phased rollout — staged 5%→25%→100% of seat inventory with rollback gates."
 stack = ["Next.js", "GDS APIs", "Stripe"]
@@ -72,9 +72,9 @@ metricSub = "Instant e-ticket PDF"
 
 [[projects]]
 id = "flowforge"
-img = "flowforge.png"
+img = "flowforge.avif"
 title = "FlowForge"
-tag = "AUTOMATION"
+tag = "Automation"
 category = "Automation"
 desc = "Connected automation — webhooks to AI processing to Gmail and CRM actions"
 stack = ["React Flow", "Node.js", "AI Agents"]
