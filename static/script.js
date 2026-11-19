@@ -27,11 +27,32 @@ themeToggle?.addEventListener("click", () => {
 mqlDark.addEventListener("change", () => { if (!themeOverride()) applyTheme(); });
 window.addEventListener("storage", e => { if (e.key === "theme") applyTheme(); });
 
+// Active menu item: underline follows the section in view and the last click.
+const navButtons = document.querySelectorAll(".nav-links button[data-scroll], .mobile-menu button[data-scroll]");
+function setActiveNav(id) {
+  navButtons.forEach(b => {
+    const active = b.dataset.scroll === id;
+    b.classList.toggle("active", active);
+    if (active) b.setAttribute("aria-current", "true");
+    else b.removeAttribute("aria-current");
+  });
+}
+if ("IntersectionObserver" in window) {
+  const spy = new IntersectionObserver(entries => {
+    const current = entries.filter(e => e.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    if (current) setActiveNav(current.target.id);
+  }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
+  document.querySelectorAll("main section[id]").forEach(section => spy.observe(section));
+}
+
 // Smooth scroll + close mobile menu
 document.querySelectorAll("[data-scroll]").forEach(btn => {
   btn.addEventListener("click", () => {
-    const el = document.getElementById(btn.getAttribute("data-scroll"));
+    const id = btn.getAttribute("data-scroll");
+    const el = document.getElementById(id);
     el?.scrollIntoView({ behavior: "smooth" });
+    setActiveNav(id);
     document.getElementById("mobileMenu")?.classList.remove("open");
   });
 });
