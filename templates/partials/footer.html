@@ -5,7 +5,16 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="logo"><img src="{{ get_url(path='logo.png') }}" alt="chulo"></div>
+          <div class="logo">
+            <picture class="logo-light">
+              <source srcset="{{ get_url(path='logo-light.avif') }}" type="image/avif">
+              <img src="{{ get_url(path='logo-light.png') }}" alt="chulo">
+            </picture>
+            <picture class="logo-dark">
+              <source srcset="{{ get_url(path='logo-dark.avif') }}" type="image/avif">
+              <img src="{{ get_url(path='logo-dark.png') }}" alt="chulo">
+            </picture>
+          </div>
           <p class="footer-tagline">{{ copy.footerTagline }}</p>
         </div>
         <div class="footer-links">
@@ -26,7 +35,7 @@
           <div>
             <h4>Contact</h4>
             <a href="mailto:contact@chulo-solutions.com">contact@chulo-solutions.com</a>
-            <a href="tel:+919801858136">+91 98018 58136</a>
+            <a href="tel:+9779801858136">+977 9801858136</a>
             <a href="tel:+9779801858136">Nepal: +977 9801858136</a>
           </div>
         </div>

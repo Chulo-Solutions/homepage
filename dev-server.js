@@ -34,7 +34,7 @@ if (!process.env.SLACK_WEBHOOK_URL) {
 const TYPES = {
   ".html": "text/html", ".css": "text/css", ".js": "text/javascript",
   ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg",
-  ".webp": "image/webp", ".ico": "image/x-icon", ".json": "application/json",
+  ".webp": "image/webp", ".avif": "image/avif", ".ico": "image/x-icon", ".json": "application/json",
 };
 
 createServer(async (req, res) => {
