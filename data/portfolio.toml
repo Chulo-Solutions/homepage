@@ -1,30 +1,30 @@
 [[services]]
 id = "01"
 title = "Product Engineering"
-desc = "From 0→1 to scale. We architect and ship production-grade software that holds up under real users."
+desc = "Whether you are starting from scratch or scaling fast, we architect and ship tested software built for real users."
 subs = ["MVP to Scale", "Frontend Systems", "Backend & Infra", "Architecture Audit"]
-outcome = "Production-ready features, not demos."
+outcome = "Built for live customers, not just a sales demo."
 
 [[services]]
 id = "02"
 title = "QA & Automation"
-desc = "Quality is not an afterthought. Integrated QA pods with automation-first pipelines that catch what humans miss."
+desc = "Quality is never an afterthought. Embedded QA engineers and automated pipelines catch edge cases before code ever ships."
 subs = ["Manual & Exploratory", "Test Automation", "Performance Testing", "Security Review"]
 outcome = "Fewer regressions. Faster releases. Measurable coverage."
 
 [[services]]
 id = "03"
 title = "AI Integration"
-desc = "We don’t bolt AI on. We weave it into your product logic, workflows, and data layer where it actually moves metrics."
+desc = "No superficial add ons. We build intelligent systems straight into your core product logic, workflows, and data layer to move the numbers that matter."
 subs = ["LLM Integration", "RAG & Agents", "Computer Vision", "MLOps"]
-outcome = "AI tied to product metrics, not slides."
+outcome = "Modern tools measured by product impact, not slide decks."
 
 [[services]]
 id = "04"
 title = "Team Augmentation"
-desc = "Senior engineers who plug into your team on time. No hiring overhead, no cultural mismatch. Just shipping."
+desc = "Experienced engineers who fit right into your team without slowing you down. Skip the lengthy hiring process and awkward onboarding, and start shipping faster."
 subs = ["Dedicated Pods", "Staff Augmentation", "CTO as a Service"]
-outcome = "Recruitment on time. Feels like internal team."
+outcome = "Delivered on schedule. Feels like your own team."
 
 [[projects]]
 id = "foodwaste"
@@ -32,7 +32,7 @@ img = "foodwaste.avif"
 title = "FoodWaste Vision"
 tag = "Computer vision"
 category = "Computer Vision"
-desc = "Smart bin with CV — detects food waste inside bin, classifies waste streams"
+desc = "An AI-powered food analysis and calorie tracking platform that brings computer vision to everyday nutrition management. FoodWaste Vision uses deep learning models including YOLOv8-based food segmentation to identify food items from images and calculate nutritional information in real time. The platform spans mobile and web applications with a dedicated ML inference API, client-side JavaScript inference engine, and a full model training pipeline built with Jupyter Notebooks."
 stack = ["YOLOv8", "Python", "OpenCV", "Edge Inference"]
 metric = "98.2% mAP"
 
@@ -42,7 +42,7 @@ img = "pokerscan.avif"
 title = "PokerScan"
 tag = "Hardware + radio"
 category = "Hardware"
-desc = "Cards swiped through the reader one by one, read via ESP32 radio signals — auto-calculates button position, winner, pot split, rake"
+desc = "An Electron-based poker application with admin settings and voice-controlled interaction powered by VOSK speech recognition. Pokerscan combines a desktop client for online poker gameplay with a full admin panel for managing tables, players, and game rules. The voice recognition backend uses VOSK for offline speech-to-text, enabling hands-free commands and voice-based interaction during gameplay, while a separate voice control pipeline processes and executes recognized commands."
 stack = ["ESP32", "Embedded C", "Radio ID", "WebSockets"]
 metric = "<200ms scan"
 
@@ -52,7 +52,7 @@ img = "mediroute.avif"
 title = "MediRoute"
 tag = "Logistics / health"
 category = "Logistics"
-desc = "GPS routing for medicine delivery, per-unit inventory, delivery & return tracking down to the single parcel"
+desc = "A medicine inventory management platform built with TypeScript, enabling patients to order prescriptions and return unused medicines through a responsive web interface. The platform handles medicine catalog management, prescription-based ordering, return processing for unused medications, and inventory tracking to ensure stock availability. Archived Python automation scripts were used for inventory synchronization, expiry date monitoring, and operational task automation."
 stack = ["React Native", "GPS", "Maps SDK"]
 metric = "7min avg ETA"
 
@@ -62,7 +62,7 @@ img = "bookit.avif"
 title = "BookIt"
 tag = "Travel tech"
 category = "Logistics"
-desc = "Yacht & cruise ticket booking with seat locking, dynamic pricing, instant confirmation. Phased rollout — staged 5%→25%→100% of seat inventory with rollback gates."
+desc = "A multi-platform river cruise booking and management platform serving cruise operators and passengers across Japan. BookIt connects cruise operators with passengers through web, mobile, and iPad interfaces, backed by a Rails API with infrastructure-as-code deployments on AWS. The system includes dedicated captain and crew mobile applications, real-time GPS tracking, an admin dashboard, and comprehensive automated QA testing pipelines to ensure reliability across all touchpoints."
 stack = ["Next.js", "GDS APIs", "Stripe"]
 metric = "99.9% uptime"
 
@@ -72,7 +72,7 @@ img = "flowforge.avif"
 title = "FlowForge"
 tag = "Automation"
 category = "Automation"
-desc = "Connected automation — webhooks to AI processing to Gmail and CRM actions"
+desc = "A daily workflow management and productivity dashboard that helped teams track tasks, manage standups, and visualize progress. The system consisted of a web dashboard for daily workflow tracking, a Ruby API backend for business logic, Python-based background workers for async task processing, and a TypeScript frontend archive. Now preserved as an archive, this project served as the organization's internal productivity hub before being superseded by newer tools"
 stack = ["React Flow", "Node.js", "AI Agents"]
 metric = "10x ops speed"
 
